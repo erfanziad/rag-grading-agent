@@ -1,0 +1,14 @@
+# Student submission files (privacy)
+submissions_q4/
+submissions_txt/
+extracted_answers.txt
+Quiz6_Grading/submissions_raw/
+Quiz6_Grading/submissions_txt/
+Quiz6_Grading/extracted_answers.txt
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
