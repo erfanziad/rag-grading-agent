@@ -33,11 +33,11 @@ This is a general-purpose grading assistant and should remain flexible across di
 
 # About Me
 
-My name is Elnaz Ziad.
+My name is Erfan Ziad.
 
-I am a Teaching Assistant and PhD student at the University of Toronto in Industrial Engineering.
+I am a Teaching Assistant and PhD student in Industrial Engineering.
 
-My specialization is machine learning in healthcare.
+My specialization is machine learning.
 
 I use this workspace to:
 - Organize grading workflows
