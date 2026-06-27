@@ -1,10 +1,9 @@
-# Student submission files (privacy)
-submissions_q4/
+# Student submission files (privacy — never commit raw submissions)
+submissions*/
+*_submissions*/
+extracted_answers*.txt
+submissions_raw/
 submissions_txt/
-extracted_answers.txt
-Quiz6_Grading/submissions_raw/
-Quiz6_Grading/submissions_txt/
-Quiz6_Grading/extracted_answers.txt
 
 # macOS
 .DS_Store

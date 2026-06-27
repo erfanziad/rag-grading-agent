@@ -4,7 +4,7 @@ An AI-assisted grading system for university courses, built on Claude Code. Desi
 
 ## What this is
 
-This repo contains the system prompt, grading workflows, and worked examples for a low-hallucination, retrieval-augmented grading assistant. The agent is general-purpose and can be adapted to any course and assignment format.
+This repo contains the system prompt, agent specification, grading workflows, and worked examples for a low-hallucination, retrieval-augmented grading assistant. The agent is general-purpose and can be adapted to any course and assignment format.
 
 The agent handles:
 - Rubric interpretation and partial credit decisions
@@ -18,27 +18,40 @@ The agent handles:
 ## Repo structure
 
 ```
-CLAUDE.md           # Core system prompt — agent behavior, RAG principles,
-                    # hallucination prevention, and grading philosophy
-AGENT.md            # Agent specification and capability summary
-Example_1.md        # Worked example: short-answer quiz grading
-Example_2.md        # Worked example: open-ended assignment grading
+AGENT.md                 # Agent specification — capabilities, workflow steps,
+                         # output format, hallucination prevention, priority rules
+
+Workflow_Example1.md     # Grading workflow: short-answer quiz
+                         # (8 Qs, 4 pts, 0.25 partial credit, late penalty tiers)
+
+Workflow_Example2.md     # Grading workflow: open-ended written assignment
+                         # (2 Qs, 4 pts, holistic rubric, lecture reference requirement)
+
+Example_1.md             # Worked example: short-answer quiz
+                         # (sample graded submissions, flagged cases, consistency notes)
+
+Example_2.md             # Worked example: open-ended assignment
+                         # (strong, partial, and flagged submissions)
 ```
 
 ## How it works
 
-1. **CLAUDE.md** acts as the persistent system context loaded at the start of every session. It defines the agent's responsibilities, evidence-based grading rules, hallucination prevention policy, and feedback philosophy.
+1. **AGENT.md** defines the agent's capabilities, grading workflow steps, hallucination prevention policy, output format, and priority rules. This is the specification layer — read it once to understand how the agent behaves.
 
-2. **Grading workflows** are built per assignment before any submissions are graded. Each workflow documents:
+2. **Workflow files** are built per assignment before any submissions are graded. Each workflow documents:
    - The rubric and scoring scale
    - Late penalty tiers
    - Partial credit rules
+   - Edge case handling
    - AI detection criteria
    - Human review triggers
    - Output CSV schema
-   - Student-facing comment generation logic
+   - Student-facing comment templates
+   - Quality control checklist
 
-3. **Submissions are extracted** from .doc/.docx/.rtf/.pdf files, parsed, and graded against the rubric. Output is a structured CSV with one row per student.
+3. **Example files** show the workflow applied to real-format submissions, including strong submissions, partial-credit cases, late submissions, and flagged cases.
+
+4. **Submissions are extracted** from .doc/.docx/.rtf/.pdf files, parsed, and graded against the workflow. Output is a structured CSV with one row per student.
 
 ## Key design principles
 
@@ -49,11 +62,13 @@ Example_2.md        # Worked example: open-ended assignment grading
 
 ## Reusing this for a new assignment
 
-1. Start a session with this repo open (CLAUDE.md is auto-loaded)
+1. Start a session with this repo open
 2. Share the assignment description, rubric, and any professor instructions
 3. The agent will ask clarifying questions before building a workflow
 4. Once the workflow is approved, share the submissions
 5. The agent extracts, grades, and outputs a CSV + summary report
+
+To add a new assignment: create a new `Workflow_<AssignmentName>.md` following the structure in the existing workflow files.
 
 ## About
 
